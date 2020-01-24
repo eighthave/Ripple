@@ -1,0 +1,12 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.owasp:dependency-check-gradle:5.3.0+'
+    }
+}
+apply plugin: 'org.owasp.dependencycheck'
+dependencyCheck {
+    formats=['HTML', 'JSON']
+}

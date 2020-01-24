@@ -12,9 +12,12 @@ release:
   image: registry.gitlab.com/fdroid/ci-images-client:latest
   script:
     - ./gradlew assembleRelease
+    - cat dependency-check.gradle >> build.gradle
+    - ./gradlew dependencyCheckAggregate
   artifacts:
     paths:
     - app/build/outputs/apk/*.apk
+    - build/reports/
 
 test:
   <<: *hugo-template
